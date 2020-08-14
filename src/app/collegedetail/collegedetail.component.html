@@ -1,0 +1,357 @@
+<app-navigation></app-navigation>
+<div *ngIf="loading" class="fa-4x text-center">
+  <i class="fas fa-spinner fa-spin"></i>
+</div>
+
+<section *ngIf="!loading">
+  <div *ngIf="error">{{ error }}</div>
+  <div *ngIf="!error">
+  <div *ngFor="let coll of college1">
+
+
+<section class="page-holder text-center" style="min-height: 50vh; background-position: center center; background-image: url(assets/images/header-bg.png); margin-top: 7rem;">
+    <div class="container" style="padding-top: 3rem;" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="display-4 text-white text-shadow" style="padding-top: 6rem;">{{ coll.title }}</h1>
+    </div>
+</section>
+
+<section class="section-medium" style="margin-top: 1rem; height:2rem; background:#ebe9e9;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> Quick Facts</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section services-section" id="services">
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-12" data-aos="flip-left" data-aos-duration="1000">
+          <div class="feature-box-1">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="icon">
+                    <i class="fa fa-th"></i>
+                </div>
+              </div>
+              <div class="feature-content container col-lg-6">
+                <h3 style="padding-top: 1rem; font-weight:bolder; font-size: xx-large;">Quick Facts</h3>
+              </div>
+            </div>
+              <div class="row" *ngFor="let qf of coll.quick_facts">
+                <div class="feature-content col-lg-4" *ngIf="qf.rank || qf.inst_type">
+                    <h5 >Rank : {{ qf.rank }}</h5>
+                    <h5>Institute Type: {{ qf.inst_type }}</h5>
+                </div>
+                <div class="feature-content col-lg-4" *ngIf="qf.ownership || qf.campus_size">
+                  <h5>Ownership: {{ qf.ownership }}</h5>
+                  <h5>Campus Size: {{ qf.campus_size }}</h5>
+                </div>
+                <div class="feature-content col-lg-4" *ngIf="qf.total_faculty">
+                  <h5>Total Faculty: {{ qf.total_faculty }}</h5>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-medium" style="height:2rem; background:white;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> About College</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-primary t-bordered">
+  <div class="container" data-aos="zoom-out-left" data-aos-duration="1500">
+      <div class="row testimonial-three testimonial-three--col-three">
+          <div class="col-md-12 testimonial-three-col">
+              <div class="testimonial-inner">
+                  <div class="testimonial-content">
+                      <p style="font-size: larger;" *ngFor="let ab of coll.about">
+                       {{ ab.intro }} 
+                      </p>
+                      <button class="btn btn-info" style="float: inline-start;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Read More</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="container collapse" id="collapseExample" *ngFor="let ab of coll.about">
+      <div class="row testimonial-three testimonial-three--col-three">
+          <div class="col-md-12 testimonial-three-col">
+              <div class="testimonial-inner">
+                  <div class="testimonial-content">
+                    <p style="font-weight: bold; font-size: larger;">Location:-</p>
+                      <p style="font-size: larger;">
+                        {{ ab.location }}
+                     </p>
+                  </div>
+                  <div class="testimonial-content">
+                    <p style="font-weight: bold; font-size: larger;">Accreditation:-</p>
+                    <ul *ngFor="let ac of ab.accreditation">
+                      <li><p style="font-size: large;">{{ ac }}</p></li>
+                    </ul>
+                  </div>
+                  <div class="testimonial-content">
+                    <p style="font-weight: bold; font-size: larger;">Collaborations:-</p>
+                    <ul *ngFor="let col of ab.collaborations">
+                      <li><p style="font-size: large;">{{ col }}</p></li>
+                    </ul>
+                  </div>
+                  <div class="testimonial-content">
+                    <p style="font-weight: bold; font-size: larger;">Clubs, Committees and Societies:-</p>
+                    <ul *ngFor="let cl of ab.clubs">
+                      <li><p style="font-size: large;"><strong>{{ cl.club_name }}:-</strong>{{ cl.club_intro }}</p></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+
+<section class="section-medium" style="margin-top: 1rem; height:2rem; background:#ebe9e9;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> Courses Offered</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="container" style="padding-top: 2rem;">
+  <h2 style="font-weight: bold;">By Degree:-</h2>
+</div>
+
+<section class="section-primary t-bordered">
+  <div class="container">
+    <div class="row testimonial-three testimonial-three--col-three">
+        <div class="col-md-2 testimonial-three-col card" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" *ngFor="let degr of coll.degrees">
+            <div class="testimonial-inner">
+                <div class="testimonial-content text-center">
+                  <a href="https://google.com"><p style="font-weight: bold; font-size: larger;">{{ degr }}</p></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 testimonial-three-col card" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div class="testimonial-inner">
+              <div class="testimonial-content text-center">
+                <button class="btn btn-info" (click)="goToSearch1(coll.title)">See More</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <h2 style="font-weight: bold;">By Courses:-</h2>
+</div>
+
+<section class="section services-section" id="services">
+  <div class="container">
+      <div class="row">
+          <!-- / -->
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+            <div class="feature-box-1">
+                <div class="icon">
+                  <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                </div>
+                <div class="feature-content">
+                    <h5>B.Tech Electronics and Communication Engineering</h5>
+                    <p>Total Fees: Rs. 5.66 Lakhs</p>
+                    <p>Seats: 122 Seats</p>
+                </div>
+            </div>
+        </div>
+        <!-- / -->
+        <!-- feaure box -->
+        <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+          <div class="feature-box-1">
+              <div class="icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </div>
+              <div class="feature-content">
+                  <h5>M.Tech Computer Science and Engineering</h5>
+                  <p>Total Fees: Rs. 1.73 Lakhs</p>
+                  <p>Seats: 28 Seats</p>
+              </div>
+          </div>
+      </div>
+      <!-- / -->
+      <!-- feaure box -->
+      <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+        <div class="feature-box-1">
+            <div class="icon">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            </div>
+            <div class="feature-content">
+                <h5>B.Tech Computer Science and Engineering</h5>
+                <p>Total Fees: Rs. 5.66 Lakhs</p>
+                <p>Seats: 121 Seats</p>
+            </div>
+        </div>
+    </div>
+    <!-- / -->
+</div>
+  </div>
+</section>
+
+<section class="section-medium" style="height:2rem; background:white;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> Exams And Dates</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section-primary t-bordered">
+    <div class="container">
+      <div class="row testimonial-three testimonial-three--col-three">
+          <div class="col-md-3 testimonial-three-col card" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" *ngFor="let ex of coll.exams">
+              <div class="testimonial-inner">
+                  <div class="testimonial-content">
+                    <p style="font-weight: bold; font-size: larger;">{{ ex.exam }}</p>
+                      <p style="font-size: larger;">
+                        Exam Date: {{ ex.exam_date }}            
+                    </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+
+<section class="section-medium" style="margin-top: 1rem; height:2rem; background:#ebe9e9;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> Admission Process</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-primary t-bordered">
+  <div class="container" data-aos="zoom-out-left" data-aos-duration="1500">
+      <div class="row testimonial-three testimonial-three--col-three">
+          <div class="col-md-12 testimonial-three-col">
+              <div class="testimonial-inner">
+                  <div class="testimonial-content">
+                      <p style="font-size: larger;" *ngFor="let ad of coll.admissions">
+                        {{ ad.intro }}
+                      </p>
+                      <button class="btn btn-info" style="float: inline-start;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">See More</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="container collapse" id="collapseExample" *ngFor="let ad of coll.admissions">
+      <div class="row testimonial-three testimonial-three--col-three">
+          <div class="col-md-12 testimonial-three-col">
+              <div class="testimonial-inner">
+                  <div class="testimonial-content" *ngFor="let cw of ad.course_wise">
+                    <p style="font-weight: bold; font-size: larger;">{{ cw.course_name }}</p>
+                    <ul *ngFor="let cws of cw.course_process">
+                      <li><p style="font-size: large;">  {{ cws }}</p></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+
+<section class="section-medium" style="margin-top: 1rem; height:2rem; background:white;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> Placements</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-primary t-bordered">
+  <div class="container">
+    <div class="row testimonial-three testimonial-three--col-three">
+        <div class="col-md-6 testimonial-three-col card" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" *ngFor="let pl of coll.placements">
+            <div class="testimonial-inner">
+                <div class="testimonial-content">
+                  <h2 style="font-weight: bold; font-size: larger;">{{ pl.course_name }}</h2>
+                  <hr>
+                    <p style="font-size: larger;">
+                     <strong> Median Package: </strong>  {{ pl.median_package }}           
+                  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-medium" style="margin-top: 1rem; height:2rem; background:#ebe9e9;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-top: -1.5rem;">
+              <h1 class="display-4 text-shadow" style="font-weight: bolder;"> Facilities</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-primary t-bordered">
+  <div class="container" data-aos="zoom-out-left" data-aos-duration="1500">
+      <div class="row testimonial-three testimonial-three--col-three">
+          <div class="col-md-12 testimonial-three-col">
+              <div class="testimonial-inner">
+                  <div class="testimonial-content">
+                      <p style="font-size: larger;" *ngFor="let fc of coll.facilities">
+                       {{ fc.intro }} 
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+
+<section class="section services-section" id="services" style="margin-top: -5rem;">
+  <div class="container">
+      <div class="row" *ngFor="let fc of coll.facilities">
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000" *ngFor="let fcs of fc.facs">
+              <div class="feature-box-1">
+                  <div class="icon">
+                    <i class="fa fa-th" aria-hidden="true"></i>
+                  </div>
+                  <div class="feature-content">
+                      <h5>{{ fcs.fac_name }}</h5>
+                      <p>{{ fcs.fac_info }}</p>
+                  </div>
+              </div>
+          </div>
+          <!-- / -->
+</div>
+  </div>
+</section>
+
+</div>
+</div>
+</section>
+
+<app-footer></app-footer>

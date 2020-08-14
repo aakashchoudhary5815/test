@@ -1,0 +1,83 @@
+<app-navigation></app-navigation>  
+<app-about></app-about>
+    
+    <!-- Contact -->
+    <div id="contact" class="form-2" style="margin-top: -3rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="container">
+                        <h2>Find Us At -</h2>
+                        <ul class="list-unstyled li-space-lg" style="font-weight: bolder; font-size: larger;">
+                            <li class="address" style="margin: 10px 0;">Don't hesitate to give us a call or send us a contact form . We are always at your service. Feel free to visit us anytime you wish.</li>
+                            <li style="margin: 10px 0;"><i class="fas fa-map-marker-alt"></i>NIT Jalandhar, Jalandhar - Punjab, India</li> <br>
+                            <li style="margin: 10px 0;"><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820">+91 1234567890</a></li>
+                            <li style="margin: 10px 0;"><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820">+91 1234567890</a></li>
+                            <li style="margin: 10px 0;"><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820">+91 1234567890</a></li>
+                            <li style="margin: 10px 0;"><i class="fas fa-envelope"></i><a class="turquoise" href="mailto:support@careerbro.in">support@careerbro.in</a></li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="3000">
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.6602993182505!2d75.53366731499266!3d31.395928981410876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a51d30c180edf%3A0x5b7633718d17ef33!2sDr.%20B.R.%20Ambedkar%20National%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1595341867328!5m2!1sen!2sin" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>     
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row" style="margin-top: 6rem;">
+                
+                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="3000">
+                    <h2>Reach Us With -</h2>
+                    <!-- Contact Form -->
+                    <form id="contactForm" data-toggle="validator" data-focus="false" style="margin-top: 1.2rem;" [formGroup] = "contactform" (ngSubmit) = "onSubmit()">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" formControlName="name">
+                            <label class="label-control" for="cname">Name</label>
+                            <div class="help-block with-errors" *ngIf="submitted && myForm.name.errors?.required">
+                                Name Is Required.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" formControlName="email">
+                            <label class="label-control" for="cemail">Email</label>
+                            <div class="help-block with-errors" *ngIf="submitted && myForm.email.errors?.required">
+                                Email Is Required.
+                            </div>
+                            <div class="help-block with-errors" *ngIf="submitted && myForm.email.errors?.pattern">
+                                Enter a Valid Email.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" formControlName="message"></textarea>
+                            <label class="label-control" for="cmessage">Your message</label>
+                            <div class="help-block with-errors" *ngIf="submitted && myForm.message.errors?.required">
+                                Message is Required.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
+                        </div>
+                    </form>
+                    <!-- end of contact form -->
+
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="container">
+                        <h2>Social Media</h2>
+                        <ul class="list-unstyled li-space-lg" style="font-weight: bolder; font-size: larger;">
+                            <li class="address" style="margin: 10px 0;">Follow us on social media platform to always be updated.</li>
+                            <li>Please feel free to provide your suggestions. We highly appreciate your feedback.</li> <br> 
+                        </ul>
+                        <ul class="list-unstyled li-space-lg" style="font-weight: bolder; font-size: larger;">
+                            <li><button type="button" class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button></li>
+                            <li><button type="button" class="btn btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</button></li>
+                            <li><button type="button" class="btn btn-ins"><i class="fab fa-instagram pr-1"></i> Instagram</button></li>
+                            <li><button type="button" class="btn btn-li"><i class="fab fa-linkedin-in pr-1"></i> Linkedin</button></li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-2 -->
+    <!-- end of contact -->
+    <app-footer></app-footer>

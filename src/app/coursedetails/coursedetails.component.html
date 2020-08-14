@@ -1,0 +1,46 @@
+<app-navigation></app-navigation>
+<div *ngIf="loading" class="fa-4x text-center">
+  <i class="fas fa-spinner fa-spin"></i>
+</div>
+
+<section *ngIf="!loading">
+  <div *ngIf="error">{{ error }}</div>
+  <div *ngIf="!error">
+  <div *ngFor="let coll of college1">
+
+
+<section class="page-holder text-center" style="min-height: 50vh; background-position: center center; background-image: url(assets/images/header-bg.png); margin-top: 7rem;">
+    <div class="container" style="padding-top: 3rem;" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="display-4 text-white text-shadow" style="padding-top: 6rem;">{{ coll.title }}</h1>
+    </div>
+</section>
+
+<div class="container pb-5 mb-2">
+    <!-- Alert-->
+    <div class="alert alert-dismissible fade show text-center mb-30"></div>
+    <!-- Cart Item-->
+    <div class="cart-item d-md-flex justify-content-between" *ngFor="let cour of coll.courses">
+        <div class="px-3 my-3">
+            <a class="cart-item-product" href="#">
+                <div class="cart-item-product-thumb"><img src="assets/images/college-icon.png" alt="Product"></div>
+                <div class="cart-item-product-info">
+                    <h4 class="cart-item-product-title">{{ cour.course_name }}</h4><span><button class="btn btn-outline-info" style="margin-top: 0.5rem;">Download Brochure</button></span>
+                </div>
+            </a>
+        </div>
+        <div class="px-3 my-3 text-center">
+            <div class="cart-item-label">Duration</div><span class="text-xl font-weight-medium">{{ cour.duration }}</span>
+        </div>
+        <div class="px-3 my-3 text-center" *ngIf="cour.total_fees !== '-'">
+            <div class="cart-item-label">Total Fees</div><span class="text-xl font-weight-medium">Rs.{{ cour.total_fees }}</span>
+        </div>
+        <div class="px-3 my-3 text-center" *ngIf="cour.seats !== '-'">
+            <div class="cart-item-label">Seats</div><span class="text-xl font-weight-medium">{{ cour.seats }} Seats</span>
+        </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+<app-footer></app-footer>

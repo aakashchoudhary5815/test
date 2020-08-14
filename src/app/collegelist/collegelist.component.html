@@ -1,0 +1,118 @@
+<app-navigation></app-navigation>
+<section class="page-holder bg-cover text-center" style="min-height: 75vh; background-position: center center; background-size: cover; background-image: url(assets/images/header-bg.png); margin-top: 7rem;">
+  <div class="container" style="padding-top: 4rem;" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="display-3 text-white text-shadow">Searches Made Easy!!</h1>
+  </div>
+  <div class="container" style="padding-top: 7rem;" data-aos="fade-up" data-aos-duration="2000">
+    <p class="text-white text-shadow" style="font-size: xx-large;">Search for your college and explore them according to your needs.</p>
+  </div> 
+  <div class="container" style="padding-top: 5rem;" data-aos="fade-up" data-aos-duration="2500">
+    <form>
+      <div class="form-row">
+          <div class="col-md-10 col-sm-12">
+              <input #search type="text" class="form-control mb-2 border-0" placeholder="What are you searching for?" name="q" style="height: 4rem;" (keyup)="getUserIdsFirstWay($event)" id="userIdFirstWay" list="dynmicUserIds">
+              <datalist id="dynmicUserIds">
+                <option *ngFor="let item of userList1" [value]="item">{{item}}</option>
+              </datalist>
+          </div>
+          <div class="col-md-2 col-sm-12">
+              <button type="submit" class="btn btn-primary btn-block shadow" (click)="goToSearch1(search.value)" style="height: 4rem;">Search</button>
+          </div>
+      </div>
+  </form>
+  </div>
+</section>
+
+<section class="section services-section" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title" data-aos="flip-up" data-aos-duration="1000">
+                    <h2>Our Features</h2>
+                    <p>We serve you with the complete information related to your chosen institution updated lately.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-desktop"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Unique design</h5>
+                        <p>We believe every information looks great when presented with a catchy look and prefect design.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Different Layout</h5>
+                        <p>We present you the information in a manner that everything could be managed with minimum efforts.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-comment"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Make it Simple</h5>
+                        <p>A simple design and interface always opts to be needy times. That's why we present you with simple but interactive interface.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-image"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Responsiveness</h5>
+                        <p>No matter on which platform you need our information. We never ask you to change that.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-th"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Updated Information</h5>
+                        <p>In this highly dynamic world, we always make sure we update you with the latest statics.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+            <!-- feaure box -->
+            <div class="col-sm-6 col-lg-4" data-aos="flip-left" data-aos-duration="1000">
+                <div class="feature-box-1">
+                    <div class="icon">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Complete Information</h5>
+                        <p>We provide one step answer to your questions. Whatever you are interested in, you can find everything about it here.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- / -->
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
